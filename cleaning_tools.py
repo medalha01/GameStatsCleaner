@@ -45,7 +45,7 @@ def data_treatment(path, save_path, preserved_column = 'result'):
     aggregation_functions = {
         'league': 'first', 'year': 'first', 'split': 'first', 'playoffs': 'first', 
         'game': 'first', 'patch': 'first', 'teamname': unique_list_agg, 
-        'playername': list, 'champion': list, 'result': 'first'
+        'playername': list, 'champion': list, preserved_column: 'first'
     }
     # Add ban and pick columns with aggregation
     for col in ['ban', 'pick']:
@@ -82,7 +82,7 @@ def data_treatment(path, save_path, preserved_column = 'result'):
     'ban3-2', 'ban4-2', 'ban5-2', 'pick1-2', 'pick2-2', 'pick3-2', 'pick4-2',
     'pick5-2', 'blue-champion1', 'blue-champion2', 'blue-champion3', 'blue-champion4',
     'blue-champion5', 'red-champion1', 'red-champion2', 'red-champion3', 'red-champion4', 
-    'red-champion5', 'result'
+    'red-champion5', preserved_column
 ]
 
     final_df = grouped_df[column_order]
