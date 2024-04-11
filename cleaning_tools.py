@@ -25,7 +25,7 @@ def cleaning_null(path, new_cv_path):
 
     df.to_csv(new_cv_path, index=False)
     
-def data_treatment(path, save_path):
+def data_treatment(path, save_path, preserved_column = 'result'):
     """
     Processes the CSV data from the specified path by selecting relevant columns, 
     aggregating and transforming data, and saving the processed data to a new CSV.
@@ -34,7 +34,7 @@ def data_treatment(path, save_path):
     selected_columns = [
         "gameid", "league", "year", "split", "playoffs", "game", "patch", "playername", 
         "teamname", "champion", "ban1", "ban2", "ban3", "ban4", "ban5", "pick1", "pick2", 
-        "pick3", "pick4", "pick5", "result"
+        "pick3", "pick4", "pick5", preserved_column
     ]
     
     # Filtering the DataFrame to include only the selected columns
