@@ -73,7 +73,20 @@ def data_treatment(path, save_path, preserved_column = 'result'):
     grouped_df.drop(columns_to_drop, axis=1, inplace=True) 
     
     # Saving the processed DataFrame to a CSV file
-    grouped_df.to_csv(save_path, index=False)
+    column_order = [
+    'gameid', 'league', 'year', 'split', 'playoffs', 'game', 'patch',
+    'teamname1',
+    'playername1', 'playername2', 'playername3', 'playername4', 'playername5', 'ban1-1', 'ban2-1', 'ban3-1', 'ban4-1', 'ban5-1', 'pick1-1',
+    'pick2-1', 'pick3-1', 'pick4-1', 'pick5-1', 'teamname2', 
+    'playername6', 'playername7', 'playername8', 'playername9', 'playername10', 'ban1-2', 'ban2-2',
+    'ban3-2', 'ban4-2', 'ban5-2', 'pick1-2', 'pick2-2', 'pick3-2', 'pick4-2',
+    'pick5-2', 'blue-champion1', 'blue-champion2', 'blue-champion3', 'blue-champion4',
+    'blue-champion5', 'red-champion1', 'red-champion2', 'red-champion3', 'red-champion4', 
+    'red-champion5', 'result'
+]
+
+    final_df = grouped_df[column_order]
+    final_df.to_csv(save_path, index=False)
 
 ##
 
